@@ -1,21 +1,49 @@
+const LoginViewModel = require('../viewModels/login');
 
-/**
- * 登录
- */
-exports.login = function(req, res) {
-    res.render('Login');
-}
+module.exports = {
+    registerRoutes(app) {
+        app.get('/login', this.login);
+        app.get('/register', this.register);
+        app.get('/retrieve', this.retrieve);
+    },
+    /**
+     * 
+     * 登录
+     * 
+     * @param {any} req 
+     * @param {any} res 
+     * @param {any} next 
+     * @returns 
+     */
+    login(req, res, next) {
+        if(isLogin) {
+            return next();
+        }
+        res.render('/login', LoginViewModel(req.body.userid));
+    },
+    /**
+     * 注册
+     * 
+     * @param {any} req 
+     * @param {any} res 
+     * @param {any} next 
+     * @returns 
+     */
+    register(req, res, next) {
+        if(isRegister) {
+            return next();
+        }
+        res.render('/register');
+    },
 
-/**
- * 注册
- */
-exports.register = function(req, res) {
-    res.render('Register');
-}
-
-/**
- * 找回密码
- */
-exports.retrieve = function(req, res) {
-    res.render('Retrieve');
+    /**
+     * 找回
+     * 
+     * @param {any} req 
+     * @param {any} res 
+     * @param {any} next 
+     */
+    retrieve(req, res, next) {
+        res.render('/retrieve');
+    }
 }
