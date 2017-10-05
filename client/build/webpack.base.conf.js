@@ -8,7 +8,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        index: ['./src/js/index/index.js']
+        index: ['./src/views/index/index.js']
     },
     output: {
         path: config.build.assetsRoot,
@@ -25,7 +25,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: [resolve('src'), resolve('test')],
                 query: {
-                    presets: ['es2015']
+                    presets: ['env']
                 }
             }, {
                 test: /.js$/,

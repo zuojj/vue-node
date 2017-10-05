@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
     build: {
         env: require('./prod.env'),
-        index: path.resolve(__dirname, '../../views/index.html'),
-        assetsRoot: path.resolve(__dirname, '../../'),
+        index: path.resolve(__dirname, '../../server/views/index.ejs'),
+        assetsRoot: path.resolve(__dirname, '../../server/'),
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         /* 虚机测试环境 */
@@ -25,8 +25,8 @@ module.exports = {
     },
     dev: {
         env: require('./dev.env'),
-        port: 80,
-        autoOpenBrowser: true,
+        port: 8080,
+        autoOpenBrowser: false,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {},
